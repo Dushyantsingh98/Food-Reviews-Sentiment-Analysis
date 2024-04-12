@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis on Fine Food Reviews</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-image: url(https://media.licdn.com/dms/image/C5612AQFQo0URj2Atxg/article-cover_image-shrink_720_1280/0/1618803838847?e=2147483647&v=beta&t=D_yUS37uuVnHGxHbAvOGawVAEhws8k2PN8ixETCNWdA); 
+      background-size: cover;
+      background-position: center;
+      color: #0e0e0e;
+      font-size: 24px;
+      text-align: center;
+      letter-spacing: 1.4px;
+    }
+
+    .login {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+    }
+
+    .login h1 {
+      color: #151414;
+      text-shadow: 0 0 10px rgba(165, 149, 149, 0.3);
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 20px; /* Increased vertical space */
+      background: rgba(237, 235, 235, 0.744); /* Better color to match black background */
+      border: none;
+      outline: none;
+      padding: 15px; /* Increased padding */
+      font-size: 16px; /* Decreased font size */
+      color: #dccdcd7e;
+      text-shadow: 1px 1px 1px rgba(10, 10, 10, 0.945);
+      border-radius: 4px;
+      box-shadow: inset 0 -5px 45px rgba(250, 250, 250, 0.874), 0 1px 1px rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.5s ease;
+    }
+    .predict-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(40, 39, 39);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.predict-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Sentiment Analysis</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="text" name="review" placeholder="Enter the product review here" required>
+      <button type="submit" class="predict-button">Predict Sentiment</button>
+    </form>
+    {% if prediction_text %}
+      <p><strong>{{ prediction_text }}</strong></p>
+    {% endif %}
+  </div>
+
+</body>
+</html>
