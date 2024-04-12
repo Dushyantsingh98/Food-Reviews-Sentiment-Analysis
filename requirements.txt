@@ -1,9 +1,0 @@
-pandas
-flask
-numpy
-scikit-learn
-gunicorn
-joblib
-nltk
-string
-re
