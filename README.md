@@ -26,4 +26,12 @@ Time: Timestamp for the review
 Summary: Brief summary of the review
 Text: Full text of the review
 
+Evaluation
+Naive Bayes achieved an accuracy of 82.92%, showcasing its effectiveness in
+sentiment classification.
+The LSTM model demonstrated strong performance, achieving a test accuracy of
+81.8% and a remarkable training accuracy of 95.5%. This highlights its capability in
+learning complex patterns within the data.
+
+
 Our approach focuses on harnessing the textual content of reviews to build a robust sentiment analysis model, enabling us to better understand and categorize customer feedback.
